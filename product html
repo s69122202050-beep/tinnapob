@@ -9,7 +9,7 @@
           content="width=device-width, initial-scale=1.0">
 
     <title>
-        รายการสินค้า | มหาเทพเติ้ล789
+        สินค้า | มหาเทพเติ้ล789
     </title>
 
     <link rel="stylesheet"
@@ -21,27 +21,26 @@
 <body>
 
 
-<header class="header">
+<header>
 
-    <a href="index.html"
-       class="brand">
+    <div class="logo-area">
 
         <img src="images/logo.png"
              alt="Logo">
 
         <div>
 
-            <strong>
+            <h2>
                 มหาเทพเติ้ล789
-            </strong>
+            </h2>
 
-            <small>
+            <p>
                 by ทุเรียนเติ้ลจันรี
-            </small>
+            </p>
 
         </div>
 
-    </a>
+    </div>
 
 
     <nav>
@@ -61,29 +60,15 @@
 
     </nav>
 
-
-    <a href="#cart"
-       class="cart-link">
-
-        🛒 ตะกร้า
-
-        <span id="cartCount">
-            0
-        </span>
-
-    </a>
-
 </header>
 
 
-<main class="section">
+<section class="section">
 
 
-<div class="section-title">
+<div class="title">
 
-    <span>
-        OUR PRODUCTS
-    </span>
+    <span>OUR PRODUCTS</span>
 
     <h1>
         🥭 รายการทุเรียน
@@ -96,157 +81,86 @@
 </div>
 
 
-<!-- หมวดหมู่ -->
+<div class="filter">
 
-<div class="filters">
-
-    <button
-        class="filter active"
-        data-category="ทั้งหมด">
-
+    <button onclick="showProducts('ทั้งหมด')">
         ทั้งหมด
-
     </button>
 
-
-    <button
-        class="filter"
-        data-category="หมอนทอง">
-
+    <button onclick="showProducts('หมอนทอง')">
         หมอนทอง
-
     </button>
 
-
-    <button
-        class="filter"
-        data-category="ก้านยาว">
-
+    <button onclick="showProducts('ก้านยาว')">
         ก้านยาว
-
     </button>
 
-
-    <button
-        class="filter"
-        data-category="ชะนี">
-
+    <button onclick="showProducts('ชะนี')">
         ชะนี
-
-    </button>
-
-
-    <button
-        class="filter"
-        data-category="ชุดรวม">
-
-        ชุดรวม
-
     </button>
 
 </div>
 
-
-<!-- รายการสินค้า -->
 
 <div id="productList"
      class="product-grid">
-
 </div>
 
 
-<!-- CART -->
+<div class="cart">
 
-<section id="cart"
-         class="cart-box">
+    <h2>
+        🛒 ตะกร้าสินค้า
+    </h2>
 
+    <div id="cartItems">
 
-    <div>
-
-        <h2>
-            🛒 ตะกร้าสินค้า
-        </h2>
-
-        <div id="cartItems">
-
-            <p>
-                ยังไม่มีสินค้าในตะกร้า
-            </p>
-
-        </div>
+        ยังไม่มีสินค้าในตะกร้า
 
     </div>
 
 
-    <aside>
-
-        <h3>
-            สรุปคำสั่งซื้อ
-        </h3>
+    <hr>
 
 
-        <div class="summary">
-
-            <span>
-                ราคาสินค้า
-            </span>
-
-            <strong id="subtotal">
-                0 บาท
-            </strong>
-
-        </div>
+    <p>
+        ราคาสินค้า:
+        <b id="subtotal">0</b>
+        บาท
+    </p>
 
 
-        <div class="summary">
-
-            <span>
-                ส่วนลด
-            </span>
-
-            <strong id="discount">
-                0 บาท
-            </strong>
-
-        </div>
+    <p>
+        ส่วนลด:
+        <b id="discount">0</b>
+        บาท
+    </p>
 
 
-        <hr>
+    <h2>
+        ยอดสุทธิ:
+        <b id="total">0</b>
+        บาท
+    </h2>
 
 
-        <div class="total">
-
-            <span>
-                ยอดสุทธิ
-            </span>
-
-            <strong id="total">
-                0 บาท
-            </strong>
-
-        </div>
-
-
-        <button
-            class="checkout"
+    <button class="checkout"
             onclick="checkout()">
 
-            🛒 สั่งซื้อสินค้า
+        🛒 สั่งซื้อสินค้า
 
-        </button>
+    </button>
 
-    </aside>
+</div>
+
 
 </section>
-
-
-</main>
 
 
 <footer>
 
     <h3>
-        🌳 มหาเทพเติ้ล789
+        มหาเทพเติ้ล789
     </h3>
 
     <p>
