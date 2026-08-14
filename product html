@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        รายการสินค้า | มหาเทพเติ้ล789
+    </title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <a href="index.html"
+       class="brand">
+
+        <img src="images/logo.png"
+             alt="Logo">
+
+        <div>
+
+            <strong>
+                มหาเทพเติ้ล789
+            </strong>
+
+            <small>
+                by ทุเรียนเติ้ลจันรี
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <nav>
+
+        <a href="index.html">
+            หน้าแรก
+        </a>
+
+        <a class="active"
+           href="products.html">
+            สินค้า
+        </a>
+
+        <a href="logic.html">
+            Set Logic
+        </a>
+
+    </nav>
+
+
+    <a href="#cart"
+       class="cart-link">
+
+        🛒 ตะกร้า
+
+        <span id="cartCount">
+            0
+        </span>
+
+    </a>
+
+</header>
+
+
+<main class="section">
+
+
+<div class="section-title">
+
+    <span>
+        OUR PRODUCTS
+    </span>
+
+    <h1>
+        🥭 รายการทุเรียน
+    </h1>
+
+    <p>
+        เลือกสายพันธุ์ทุเรียนที่ต้องการ
+    </p>
+
+</div>
+
+
+<!-- หมวดหมู่ -->
+
+<div class="filters">
+
+    <button
+        class="filter active"
+        data-category="ทั้งหมด">
+
+        ทั้งหมด
+
+    </button>
+
+
+    <button
+        class="filter"
+        data-category="หมอนทอง">
+
+        หมอนทอง
+
+    </button>
+
+
+    <button
+        class="filter"
+        data-category="ก้านยาว">
+
+        ก้านยาว
+
+    </button>
+
+
+    <button
+        class="filter"
+        data-category="ชะนี">
+
+        ชะนี
+
+    </button>
+
+
+    <button
+        class="filter"
+        data-category="ชุดรวม">
+
+        ชุดรวม
+
+    </button>
+
+</div>
+
+
+<!-- รายการสินค้า -->
+
+<div id="productList"
+     class="product-grid">
+
+</div>
+
+
+<!-- CART -->
+
+<section id="cart"
+         class="cart-box">
+
+
+    <div>
+
+        <h2>
+            🛒 ตะกร้าสินค้า
+        </h2>
+
+        <div id="cartItems">
+
+            <p>
+                ยังไม่มีสินค้าในตะกร้า
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <aside>
+
+        <h3>
+            สรุปคำสั่งซื้อ
+        </h3>
+
+
+        <div class="summary">
+
+            <span>
+                ราคาสินค้า
+            </span>
+
+            <strong id="subtotal">
+                0 บาท
+            </strong>
+
+        </div>
+
+
+        <div class="summary">
+
+            <span>
+                ส่วนลด
+            </span>
+
+            <strong id="discount">
+                0 บาท
+            </strong>
+
+        </div>
+
+
+        <hr>
+
+
+        <div class="total">
+
+            <span>
+                ยอดสุทธิ
+            </span>
+
+            <strong id="total">
+                0 บาท
+            </strong>
+
+        </div>
+
+
+        <button
+            class="checkout"
+            onclick="checkout()">
+
+            🛒 สั่งซื้อสินค้า
+
+        </button>
+
+    </aside>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <h3>
+        🌳 มหาเทพเติ้ล789
+    </h3>
+
+    <p>
+        by ทุเรียนเติ้ลจันรี
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
