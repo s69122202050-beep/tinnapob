@@ -8,35 +8,28 @@
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
 
-    <title>
-        สินค้า | มหาเทพเติ้ล789
-    </title>
+    <title>สินค้าทุเรียน | มหาเทพเติ้ล789</title>
 
-    <link rel="stylesheet"
-          href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
-
 
 <body>
 
 
-<header>
+<header class="header">
 
     <div class="logo-area">
 
-        <img src="images/logo.png"
-             alt="Logo">
+        <img src="durian.png"
+             class="logo"
+             alt="โลโก้ทุเรียน">
 
         <div>
 
-            <h2>
-                มหาเทพเติ้ล789
-            </h2>
+            <h1>มหาเทพเติ้ล789</h1>
 
-            <p>
-                by ทุเรียนเติ้ลจันรี
-            </p>
+            <p>by ทุเรียนเติ้ลจันรี</p>
 
         </div>
 
@@ -45,127 +38,117 @@
 
     <nav>
 
-        <a href="index.html">
-            หน้าแรก
-        </a>
+        <a href="index.html">หน้าแรก</a>
 
-        <a class="active"
-           href="products.html">
-            สินค้า
-        </a>
+        <a href="products.html">สินค้า</a>
 
-        <a href="logic.html">
-            Set Logic
-        </a>
+        <a href="logic.html">Set Logic</a>
 
     </nav>
 
 </header>
 
 
-<section class="section">
+<section class="products-page">
 
+    <div class="section-title">
 
-<div class="title">
+        <span>OUR PRODUCTS</span>
 
-    <span>OUR PRODUCTS</span>
+        <h2>🥭 รายการทุเรียน</h2>
 
-    <h1>
-        🥭 รายการทุเรียน
-    </h1>
-
-    <p>
-        เลือกสายพันธุ์ทุเรียนที่ต้องการ
-    </p>
-
-</div>
-
-
-<div class="filter">
-
-    <button onclick="showProducts('ทั้งหมด')">
-        ทั้งหมด
-    </button>
-
-    <button onclick="showProducts('หมอนทอง')">
-        หมอนทอง
-    </button>
-
-    <button onclick="showProducts('ก้านยาว')">
-        ก้านยาว
-    </button>
-
-    <button onclick="showProducts('ชะนี')">
-        ชะนี
-    </button>
-
-</div>
-
-
-<div id="productList"
-     class="product-grid">
-</div>
-
-
-<div class="cart">
-
-    <h2>
-        🛒 ตะกร้าสินค้า
-    </h2>
-
-    <div id="cartItems">
-
-        ยังไม่มีสินค้าในตะกร้า
+        <p>
+            เลือกทุเรียนที่ต้องการ
+        </p>
 
     </div>
 
 
-    <hr>
+    <!-- หมวดหมู่ -->
+
+    <div class="category-buttons">
+
+        <button onclick="filterProducts('all')">
+            ทั้งหมด
+        </button>
+
+        <button onclick="filterProducts('หมอนทอง')">
+            หมอนทอง
+        </button>
+
+        <button onclick="filterProducts('ก้านยาว')">
+            ก้านยาว
+        </button>
+
+        <button onclick="filterProducts('ชะนี')">
+            ชะนี
+        </button>
+
+    </div>
 
 
-    <p>
-        ราคาสินค้า:
-        <b id="subtotal">0</b>
-        บาท
-    </p>
+    <!-- รายการสินค้า -->
+
+    <div id="productList"
+         class="product-grid">
+
+    </div>
 
 
-    <p>
-        ส่วนลด:
-        <b id="discount">0</b>
-        บาท
-    </p>
+    <!-- CART -->
 
+    <div class="cart-box">
 
-    <h2>
-        ยอดสุทธิ:
-        <b id="total">0</b>
-        บาท
-    </h2>
+        <h2>🛒 ตะกร้าสินค้า</h2>
 
+        <div id="cartItems">
+            ยังไม่มีสินค้า
+        </div>
 
-    <button class="checkout"
-            onclick="checkout()">
+        <hr>
 
-        🛒 สั่งซื้อสินค้า
+        <p>
+            ราคาสินค้า:
+            <strong id="subtotal">
+                0 บาท
+            </strong>
+        </p>
 
-    </button>
+        <p>
+            ส่วนลด:
+            <strong id="discount">
+                0 บาท
+            </strong>
+        </p>
 
-</div>
+        <h3>
+            ยอดสุทธิ:
+            <span id="total">
+                0 บาท
+            </span>
+        </h3>
 
+        <button class="checkout-btn"
+                onclick="checkout()">
+
+            🛒 สั่งซื้อสินค้า
+
+        </button>
+
+    </div>
 
 </section>
 
 
 <footer>
 
-    <h3>
-        มหาเทพเติ้ล789
-    </h3>
+    <img src="durian.png"
+         class="footer-logo"
+         alt="โลโก้">
 
-    <p>
-        by ทุเรียนเติ้ลจันรี
-    </p>
+    <h3>มหาเทพเติ้ล789</h3>
+
+    <p>by ทุเรียนเติ้ลจันรี</p>
 
 </footer>
 
@@ -173,5 +156,4 @@
 <script src="script.js"></script>
 
 </body>
-
 </html>
