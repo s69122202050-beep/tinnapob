@@ -1,6 +1,6 @@
-/* =========================================
-   ข้อมูลสินค้า
-========================================= */
+// ===============================
+// ข้อมูลสินค้า
+// ===============================
 
 const products = [
 
@@ -8,237 +8,112 @@ const products = [
         id: 1,
         name: "หมอนทอง",
         category: "หมอนทอง",
-        price: 180,
-        discount: 10,
-        description: "เนื้อหนา หวานมัน กลิ่นหอม"
+        description: "เนื้อหนา หวานมัน กลิ่นหอม",
+        oldPrice: 180,
+        price: 162,
+        discount: 10
     },
 
     {
         id: 2,
         name: "ก้านยาว",
         category: "ก้านยาว",
-        price: 250,
-        discount: 15,
-        description: "เนื้อละเอียด หวานหอม"
+        description: "เนื้อละเอียด หวานหอม",
+        oldPrice: 250,
+        price: 212.5,
+        discount: 15
     },
 
     {
         id: 3,
         name: "ชะนี",
         category: "ชะนี",
+        description: "เนื้อนุ่ม รสหวานมัน",
+        oldPrice: 160,
         price: 160,
-        discount: 0,
-        description: "เนื้อนุ่ม รสหวานมัน"
+        discount: 0
     },
 
     {
         id: 4,
         name: "หมอนทองพรีเมียม",
         category: "หมอนทอง",
-        price: 320,
-        discount: 20,
-        description: "คัดพิเศษ เนื้อแน่นเต็มพู"
+        description: "คัดพิเศษ เนื้อแน่นเต็มพู",
+        oldPrice: 320,
+        price: 256,
+        discount: 20
     },
 
     {
         id: 5,
         name: "ชุดทุเรียนรวม",
-        category: "ชุดรวม",
-        price: 500,
-        discount: 25,
-        description: "รวมหลายสายพันธุ์"
+        category: "รวม",
+        description: "รวมหลายสายพันธุ์",
+        oldPrice: 500,
+        price: 375,
+        discount: 25
     }
 
 ];
 
 
-/* =========================================
-   ตะกร้า
-========================================= */
+// ===============================
+// ตะกร้า
+// ===============================
 
-let cart =
-    JSON.parse(
-        localStorage.getItem("durianCart")
-    ) || [];
+let cart = [];
 
 
-/* =========================================
-   ฟังก์ชันเงิน
-========================================= */
+// ===============================
+// แสดงสินค้า
+// ===============================
 
-function formatMoney(number) {
-
-    return number.toLocaleString("th-TH");
-
-}
-
-
-/* =========================================
-   ราคาหลังส่วนลด
-========================================= */
-
-function salePrice(product) {
-
-    return product.price -
-        (product.price *
-        product.discount / 100);
-
-}
-
-
-/* =========================================
-   แสดงจำนวนสินค้าในตะกร้า
-========================================= */
-
-function updateCartCount() {
-
-    const count =
-        cart.reduce(
-            (sum, item) =>
-                sum + item.quantity,
-            0
-        );
-
-
-    document
-        .querySelectorAll("#cartCount")
-        .forEach(element => {
-
-            element.textContent = count;
-
-        });
-
-}
-
-
-/* =========================================
-   บันทึกตะกร้า
-========================================= */
-
-function saveCart() {
-
-    localStorage.setItem(
-        "durianCart",
-        JSON.stringify(cart)
-    );
-
-    updateCartCount();
-
-}
-
-
-/* =========================================
-   แสดงสินค้า
-========================================= */
-
-function displayProducts(
-    category = "ทั้งหมด"
-) {
+function displayProducts(list = products) {
 
     const productList =
-        document.getElementById(
-            "productList"
-        );
-
+        document.getElementById("productList");
 
     if (!productList) {
         return;
     }
 
-
     productList.innerHTML = "";
 
 
-    const filteredProducts =
-        products.filter(product => {
-
-            if (category === "ทั้งหมด") {
-
-                return true;
-
-            }
-
-            return product.category === category;
-
-        });
-
-
-    filteredProducts.forEach(product => {
+    list.forEach(product => {
 
         const card =
             document.createElement("div");
 
-
-        card.className =
-            "product-card";
+        card.className = "product-card";
 
 
         card.innerHTML = `
 
-            <div class="product-image">
-
-                <img
-                    src="images/durian.png"
-                    alt="${product.name}"
-                >
-
-            </div>
-
-
-            <span class="category">
-
-                ${product.category}
-
-            </span>
-
+            <img
+                src="durian.png"
+                alt="${product.name}"
+            >
 
             <h3>
                 ${product.name}
             </h3>
 
-
             <p>
                 ${product.description}
             </p>
 
-
-            <div class="price">
-
-                ${
-                    product.discount > 0
-
-                    ?
-
-                    `
-                    <span class="old-price">
-                        ${formatMoney(product.price)}
-                        บาท
-                    </span>
-                    <br>
-                    `
-
-                    :
-
-                    ""
-                }
-
-
-                ${formatMoney(
-                    salePrice(product)
-                )}
-
-                บาท
-
+            <div class="old-price">
+                ${product.oldPrice} บาท
             </div>
 
+            <div class="price">
+                ${product.price} บาท
+            </div>
 
-            <p>
-
-                ส่วนลด
-                ${product.discount}%
-
-            </p>
-
+            <div class="discount">
+                ส่วนลด ${product.discount}%
+            </div>
 
             <button
                 class="add-cart"
@@ -247,7 +122,6 @@ function displayProducts(
                 🛒 เพิ่มลงตะกร้า
 
             </button>
-
         `;
 
 
@@ -258,118 +132,71 @@ function displayProducts(
 }
 
 
-/* =========================================
-   เพิ่มสินค้า
-========================================= */
+// ===============================
+// กรองสินค้า
+// ===============================
 
-function addToCart(id) {
+function filterProducts(category) {
 
-    const existing =
-        cart.find(
-            item => item.id === id
-        );
+    if (category === "all") {
 
+        displayProducts(products);
 
-    if (existing) {
-
-        existing.quantity++;
-
-    }
-
-    else {
-
-        cart.push({
-
-            id: id,
-
-            quantity: 1
-
-        });
-
-    }
-
-
-    saveCart();
-
-    displayCart();
-
-
-    alert(
-        "เพิ่มสินค้าลงตะกร้าแล้ว"
-    );
-
-}
-
-
-/* =========================================
-   เปลี่ยนจำนวน
-========================================= */
-
-function changeQuantity(
-    id,
-    amount
-) {
-
-    const item =
-        cart.find(
-            item => item.id === id
-        );
-
-
-    if (!item) {
         return;
     }
 
 
-    item.quantity += amount;
-
-
-    if (item.quantity <= 0) {
-
-        cart =
-            cart.filter(
-                item => item.id !== id
-            );
-
-    }
-
-
-    saveCart();
-
-    displayCart();
-
-}
-
-
-/* =========================================
-   ลบสินค้า
-========================================= */
-
-function removeFromCart(id) {
-
-    cart =
-        cart.filter(
-            item => item.id !== id
+    const filtered =
+        products.filter(
+            product =>
+            product.category === category
         );
 
 
-    saveCart();
-
-    displayCart();
-
+    displayProducts(filtered);
 }
 
 
-/* =========================================
-   แสดงตะกร้า
-========================================= */
+// ===============================
+// เพิ่มสินค้า
+// ===============================
 
-function displayCart() {
+function addToCart(id) {
+
+    const product =
+        products.find(
+            product => product.id === id
+        );
+
+
+    cart.push(product);
+
+    updateCart();
+
+
+    alert(
+        `เพิ่ม ${product.name} ลงในตะกร้าแล้ว`
+    );
+}
+
+
+// ===============================
+// แสดงตะกร้า
+// ===============================
+
+function updateCart() {
 
     const cartItems =
-        document.getElementById(
-            "cartItems"
-        );
+        document.getElementById("cartItems");
+
+    const subtotalElement =
+        document.getElementById("subtotal");
+
+    const discountElement =
+        document.getElementById("discount");
+
+    const totalElement =
+        document.getElementById("total");
 
 
     if (!cartItems) {
@@ -379,26 +206,19 @@ function displayCart() {
 
     if (cart.length === 0) {
 
-        cartItems.innerHTML = `
-            <p>
-                🛒 ยังไม่มีสินค้าในตะกร้า
-            </p>
-        `;
+        cartItems.innerHTML =
+            "ยังไม่มีสินค้า";
 
-        document.getElementById(
-            "subtotal"
-        ).textContent = "0 บาท";
+        subtotalElement.textContent =
+            "0 บาท";
 
-        document.getElementById(
-            "discount"
-        ).textContent = "0 บาท";
+        discountElement.textContent =
+            "0 บาท";
 
-        document.getElementById(
-            "total"
-        ).textContent = "0 บาท";
+        totalElement.textContent =
+            "0 บาท";
 
         return;
-
     }
 
 
@@ -406,112 +226,32 @@ function displayCart() {
 
 
     let subtotal = 0;
-
     let discount = 0;
 
 
-    cart.forEach(item => {
+    cart.forEach((product, index) => {
 
-        const product =
-            products.find(
-                p => p.id === item.id
-            );
-
-
-        const normalPrice =
-            product.price *
-            item.quantity;
-
-
-        const finalPrice =
-            salePrice(product) *
-            item.quantity;
-
-
-        subtotal += normalPrice;
+        subtotal += product.oldPrice;
 
         discount +=
-            normalPrice - finalPrice;
+            product.oldPrice - product.price;
 
 
-        const div =
-            document.createElement(
-                "div"
-            );
+        const item =
+            document.createElement("p");
 
 
-        div.className =
-            "cart-item";
+        item.innerHTML = `
 
-
-        div.innerHTML = `
-
-            <img
-                src="images/durian.png"
-                alt="${product.name}"
-            >
-
-
-            <div class="cart-info">
-
-                <strong>
-                    ${product.name}
-                </strong>
-
-                <br>
-
-                ${formatMoney(
-                    salePrice(product)
-                )}
-
-                บาท
-
-            </div>
-
-
-            <div class="qty">
-
-                <button
-                    onclick="changeQuantity(
-                        ${product.id},
-                        -1
-                    )">
-
-                    −
-
-                </button>
-
-
-                ${item.quantity}
-
-
-                <button
-                    onclick="changeQuantity(
-                        ${product.id},
-                        1
-                    )">
-
-                    +
-
-                </button>
-
-            </div>
-
-
-            <button
-                class="delete"
-                onclick="removeFromCart(
-                    ${product.id}
-                )">
-
-                ลบ
-
-            </button>
+            ${index + 1}.
+            ${product.name}
+            -
+            ${product.price} บาท
 
         `;
 
 
-        cartItems.appendChild(div);
+        cartItems.appendChild(item);
 
     });
 
@@ -520,33 +260,22 @@ function displayCart() {
         subtotal - discount;
 
 
-    document.getElementById(
-        "subtotal"
-    ).textContent =
-        formatMoney(subtotal)
-        + " บาท";
+    subtotalElement.textContent =
+        `${subtotal} บาท`;
 
 
-    document.getElementById(
-        "discount"
-    ).textContent =
-        "-" +
-        formatMoney(discount)
-        + " บาท";
+    discountElement.textContent =
+        `${discount} บาท`;
 
 
-    document.getElementById(
-        "total"
-    ).textContent =
-        formatMoney(total)
-        + " บาท";
-
+    totalElement.textContent =
+        `${total} บาท`;
 }
 
 
-/* =========================================
-   สั่งซื้อ
-========================================= */
+// ===============================
+// Checkout
+// ===============================
 
 function checkout() {
 
@@ -557,208 +286,160 @@ function checkout() {
         );
 
         return;
-
     }
 
 
     alert(
-        "สั่งซื้อสำเร็จ!"
+        "ขอบคุณสำหรับคำสั่งซื้อจาก มหาเทพเติ้ล789"
     );
-
-
-    cart = [];
-
-
-    saveCart();
-
-    displayCart();
 
 }
 
 
-/* =========================================
-   SET THEORY
-========================================= */
+// ===============================
+// SET THEORY
+// ===============================
+
+const setA = [
+    "หมอนทอง",
+    "ก้านยาว",
+    "ชะนี",
+    "หมอนทองพรีเมียม",
+    "ชุดทุเรียนรวม"
+];
+
+
+const setB = [
+    "หมอนทอง",
+    "ก้านยาว",
+    "หมอนทองพรีเมียม",
+    "ชุดทุเรียนรวม"
+];
+
+
+// แสดง Set
 
 function displaySets() {
 
-    const setA =
+    const A =
+        document.getElementById("setA");
+
+    const B =
+        document.getElementById("setB");
+
+
+    if (A) {
+
+        A.textContent =
+            "{ " +
+            setA.join(", ") +
+            " }";
+
+    }
+
+
+    if (B) {
+
+        B.textContent =
+            "{ " +
+            setB.join(", ") +
+            " }";
+
+    }
+
+}
+
+
+// ===============================
+// SET OPERATION
+// ===============================
+
+function setOperation(operation) {
+
+    const result =
         document.getElementById(
-            "setA"
+            "logicResult"
         );
 
 
-    const setB =
-        document.getElementById(
-            "setB"
-        );
-
-
-    if (!setA || !setB) {
+    if (!result) {
         return;
     }
 
 
-    /*
-        Set A =
-        สินค้าทั้งหมด
-    */
-
-    const A =
-        products.map(
-            product => product.id
-        );
+    let answer = [];
 
 
-    /*
-        Set B =
-        สินค้าที่มีส่วนลด
-    */
-
-    const B =
-        products
-            .filter(
-                product =>
-                    product.discount > 0
-            )
-            .map(
-                product =>
-                    product.id
-            );
-
-
-    setA.innerHTML =
-        createSetText(A);
-
-
-    setB.innerHTML =
-        createSetText(B);
-
-}
-
-
-/* =========================================
-   แปลง Set เป็นข้อความ
-========================================= */
-
-function createSetText(ids) {
-
-    return `{
-
-        ${
-            ids.map(id => {
-
-                const product =
-                    products.find(
-                        p => p.id === id
-                    );
-
-                return product.name;
-
-            }).join(", ")
-
-        }
-
-    }`;
-
-}
-
-
-/* =========================================
-   SET AND / OR / NOT
-========================================= */
-
-function setOperation(operation) {
-
-    const A =
-        products.map(
-            product => product.id
-        );
-
-
-    const B =
-        products
-            .filter(
-                product =>
-                    product.discount > 0
-            )
-            .map(
-                product =>
-                    product.id
-            );
-
-
-    let result = [];
-
-
-    /* AND = Intersection */
-
+    // AND
     if (operation === "AND") {
 
-        result =
-            A.filter(
-                id => B.includes(id)
+        answer =
+            setA.filter(
+                item => setB.includes(item)
             );
 
-    }
+        result.innerHTML =
+            `
+            A ∩ B = { ${answer.join(", ")} }
 
+            <br><br>
 
-    /* OR = Union */
-
-    if (operation === "OR") {
-
-        result =
-            [
-                ...new Set(
-                    [...A, ...B]
-                )
-            ];
+            AND หมายถึง สมาชิกที่อยู่ใน
+            Set A และ Set B พร้อมกัน
+            `;
 
     }
 
 
-    /* NOT / Difference */
+    // OR
+    else if (operation === "OR") {
 
-    if (operation === "NOT") {
+        answer =
+            [...new Set([...setA, ...setB])];
 
-        result =
-            A.filter(
-                id => !B.includes(id)
+
+        result.innerHTML =
+            `
+            A ∪ B = { ${answer.join(", ")} }
+
+            <br><br>
+
+            OR หมายถึง สมาชิกของ A
+            หรือ B หรืออยู่ทั้งสองเซต
+            `;
+
+    }
+
+
+    // NOT / DIFFERENCE
+    else if (operation === "NOT") {
+
+        answer =
+            setA.filter(
+                item => !setB.includes(item)
             );
 
+
+        result.innerHTML =
+            `
+            A - B = { ${answer.join(", ")} }
+
+            <br><br>
+
+            NOT / Difference หมายถึง
+            สมาชิกที่อยู่ใน A แต่ไม่อยู่ใน B
+            `;
+
     }
-
-
-    const resultBox =
-        document.getElementById(
-            "setResult"
-        );
-
-
-    resultBox.innerHTML = `
-
-        Operation:
-
-        <strong>
-            ${operation}
-        </strong>
-
-        <br><br>
-
-        ${createSetText(result)}
-
-    `;
 
 }
 
 
-/* =========================================
-   BOOLEAN LOGIC
-========================================= */
+// ===============================
+// BOOLEAN LOGIC
+// ===============================
 
-function booleanOperation(
-    operation
-) {
+function booleanOperation(operation) {
 
     const A =
         document.getElementById(
@@ -772,192 +453,148 @@ function booleanOperation(
         ).checked;
 
 
-    let result;
-
-
-    /*
-        AND
-    */
-
-    if (operation === "AND") {
-
-        result =
-            A && B;
-
-    }
-
-
-    /*
-        OR
-    */
-
-    if (operation === "OR") {
-
-        result =
-            A || B;
-
-    }
-
-
-    /*
-        NOT
-    */
-
-    if (operation === "NOT") {
-
-        result =
-            !A;
-
-    }
-
-
-    const resultBox =
+    const result =
         document.getElementById(
             "booleanResult"
         );
 
 
-    resultBox.innerHTML = `
+    if (!result) {
+        return;
+    }
 
-        ${operation}
 
-        =
+    let answer;
 
-        <strong>
-            ${result ? "TRUE" : "FALSE"}
-        </strong>
 
-    `;
+    if (operation === "AND") {
+
+        answer = A && B;
+
+        result.innerHTML =
+            `
+            A AND B = ${answer}
+
+            <br>
+
+            ต้องเป็น TRUE ทั้ง A และ B
+            `;
+
+    }
+
+
+    else if (operation === "OR") {
+
+        answer = A || B;
+
+        result.innerHTML =
+            `
+            A OR B = ${answer}
+
+            <br>
+
+            อย่างน้อยหนึ่งค่าเป็น TRUE
+            `;
+
+    }
+
+
+    else if (operation === "NOT") {
+
+        answer = !A;
+
+        result.innerHTML =
+            `
+            NOT A = ${answer}
+
+            <br>
+
+            เป็นค่าตรงข้ามของ A
+            `;
+
+    }
 
 }
 
 
-/* =========================================
-   IF / ELSE ส่วนลด
-========================================= */
+// ===============================
+// IF ELSE
+// ===============================
 
 function checkDiscount() {
 
-    const quantity =
-        Number(
-            document.getElementById(
-                "quantityInput"
-            ).value
+    const input =
+        document.getElementById(
+            "quantityInput"
         );
 
 
-    let discountText;
+    const result =
+        document.getElementById(
+            "ifElseResult"
+        );
 
 
-    /*
-        IF / ELSE
-    */
+    if (!input || !result) {
+        return;
+    }
 
-    if (quantity >= 10) {
 
-        discountText =
-            "ได้รับส่วนลด 20%";
+    const quantity =
+        Number(input.value);
+
+
+    if (quantity >= 5) {
+
+        result.innerHTML =
+            `
+            🎉 ซื้อ ${quantity} ลูก
+
+            <br>
+
+            ได้รับส่วนลด 10%
+
+            <br>
+
+            เงื่อนไขเป็น TRUE
+            `;
 
     }
 
-    else if (quantity >= 5) {
-
-        discountText =
-            "ได้รับส่วนลด 10%";
-
-    }
-
-    else if (quantity >= 3) {
-
-        discountText =
-            "ได้รับส่วนลด 5%";
-
-    }
 
     else {
 
-        discountText =
-            "ยังไม่มีส่วนลด";
+        result.innerHTML =
+            `
+            ซื้อ ${quantity} ลูก
+
+            <br>
+
+            ยังไม่ได้รับส่วนลด
+
+            <br>
+
+            เงื่อนไขเป็น FALSE
+            `;
 
     }
-
-
-    document.getElementById(
-        "ifElseResult"
-    ).innerHTML = `
-
-        จำนวนที่สั่ง:
-
-        <strong>
-            ${quantity} ลูก
-        </strong>
-
-        <br>
-
-        ${discountText}
-
-    `;
 
 }
 
 
-/* =========================================
-   เริ่มต้นเว็บไซต์
-========================================= */
+// ===============================
+// เริ่มต้นเว็บไซต์
+// ===============================
 
 document.addEventListener(
     "DOMContentLoaded",
-    function() {
+    function () {
 
         displayProducts();
 
-        displayCart();
-
         displaySets();
 
-        updateCartCount();
-
-
-        /*
-            ปุ่มหมวดหมู่
-        */
-
-        document
-            .querySelectorAll(
-                ".filter"
-            )
-            .forEach(button => {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        document
-                            .querySelectorAll(
-                                ".filter"
-                            )
-                            .forEach(
-                                btn =>
-                                    btn.classList
-                                    .remove(
-                                        "active"
-                                    )
-                            );
-
-
-                        this.classList.add(
-                            "active"
-                        );
-
-
-                        displayProducts(
-                            this.dataset.category
-                        );
-
-                    }
-                );
-
-            });
+        updateCart();
 
     }
 );
