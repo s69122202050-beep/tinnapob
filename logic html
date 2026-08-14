@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Set Logic | มหาเทพเติ้ล789
+    </title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header class="header">
+
+    <a href="index.html"
+       class="brand">
+
+        <img src="images/logo.png"
+             alt="Logo">
+
+        <div>
+
+            <strong>
+                มหาเทพเติ้ล789
+            </strong>
+
+            <small>
+                by ทุเรียนเติ้ลจันรี
+            </small>
+
+        </div>
+
+    </a>
+
+
+    <nav>
+
+        <a href="index.html">
+            หน้าแรก
+        </a>
+
+        <a href="products.html">
+            สินค้า
+        </a>
+
+        <a class="active"
+           href="logic.html">
+            Set Logic
+        </a>
+
+    </nav>
+
+
+    <a href="products.html"
+       class="cart-link">
+
+        🛒 ตะกร้า
+
+        <span id="cartCount">
+            0
+        </span>
+
+    </a>
+
+</header>
+
+
+<main class="section">
+
+
+<div class="section-title">
+
+    <span>
+        DISCRETE MATHEMATICS
+    </span>
+
+    <h1>
+        🧠 Set Theory & Boolean Logic
+    </h1>
+
+    <p>
+        การประยุกต์คณิตศาสตร์ดิสครีตกับร้านทุเรียน
+    </p>
+
+</div>
+
+
+<!-- SET A / SET B -->
+
+<div class="logic-grid">
+
+
+    <div class="logic-card">
+
+        <h2>
+            Set A
+        </h2>
+
+        <p>
+            สินค้าทั้งหมดในร้าน
+        </p>
+
+        <div id="setA"
+             class="set-box">
+
+            กำลังโหลด...
+
+        </div>
+
+    </div>
+
+
+    <div class="logic-card">
+
+        <h2>
+            Set B
+        </h2>
+
+        <p>
+            สินค้าที่มีส่วนลด
+        </p>
+
+        <div id="setB"
+             class="set-box">
+
+            กำลังโหลด...
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- SET OPERATION -->
+
+<div class="logic-card">
+
+    <h2>
+        🔢 การดำเนินการของเซต
+    </h2>
+
+    <p>
+        ทดลอง AND / OR / NOT
+    </p>
+
+
+    <div class="logic-buttons">
+
+
+        <button onclick="setOperation('AND')">
+
+            A ∩ B
+
+            <small>
+                AND / Intersection
+            </small>
+
+        </button>
+
+
+        <button onclick="setOperation('OR')">
+
+            A ∪ B
+
+            <small>
+                OR / Union
+            </small>
+
+        </button>
+
+
+        <button onclick="setOperation('NOT')">
+
+            A − B
+
+            <small>
+                Difference / NOT
+            </small>
+
+        </button>
+
+    </div>
+
+
+    <div id="setResult"
+         class="result">
+
+        เลือก Operation
+        เพื่อดูผลลัพธ์
+
+    </div>
+
+</div>
+
+
+<!-- BOOLEAN -->
+
+<div class="logic-card">
+
+    <h2>
+        🔘 Boolean Logic
+    </h2>
+
+    <p>
+        ทดลองค่า TRUE / FALSE
+    </p>
+
+
+    <div class="boolean-controls">
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="booleanA">
+
+            A = TRUE
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="booleanB">
+
+            B = TRUE
+
+        </label>
+
+    </div>
+
+
+    <div class="logic-buttons">
+
+
+        <button onclick="booleanOperation('AND')">
+
+            A AND B
+
+        </button>
+
+
+        <button onclick="booleanOperation('OR')">
+
+            A OR B
+
+        </button>
+
+
+        <button onclick="booleanOperation('NOT')">
+
+            NOT A
+
+        </button>
+
+
+    </div>
+
+
+    <div id="booleanResult"
+         class="result">
+
+        ผลลัพธ์ Boolean
+
+    </div>
+
+</div>
+
+
+<!-- IF ELSE -->
+
+<div class="logic-card">
+
+    <h2>
+        ⚙️ IF / ELSE ระบบส่วนลด
+    </h2>
+
+    <p>
+        ทดลองจำนวนทุเรียนที่สั่งซื้อ
+    </p>
+
+
+    <div class="form-row">
+
+        <input
+            type="number"
+            id="quantityInput"
+            min="1"
+            value="1">
+
+
+        <button
+            class="btn"
+            onclick="checkDiscount()">
+
+            ตรวจสอบส่วนลด
+
+        </button>
+
+    </div>
+
+
+    <div id="ifElseResult"
+         class="result">
+
+        รอการตรวจสอบ...
+
+    </div>
+
+</div>
+
+
+</main>
+
+
+<footer>
+
+    <h3>
+        มหาเทพเติ้ล789
+    </h3>
+
+    <p>
+        Set Theory
+        |
+        Boolean Logic
+        |
+        Discrete Mathematics
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
