@@ -6,308 +6,779 @@
 
     <title>Set Logic | มหาเทพเติ้ล789</title>
 
-    <link rel="stylesheet" href="style.css">
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #f5f7ef;
+            color: #26351d;
+            line-height: 1.7;
+        }
+
+        /* ================= HEADER ================= */
+
+        .header {
+            background: linear-gradient(135deg, #183b16, #356b25);
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            width: 65px;
+            height: 65px;
+            object-fit: cover;
+            border-radius: 14px;
+            background: white;
+        }
+
+        .logo-area h1 {
+            font-size: 23px;
+            margin-bottom: 2px;
+        }
+
+        .logo-area p {
+            font-size: 13px;
+            opacity: 0.85;
+        }
+
+        nav {
+            display: flex;
+            gap: 8px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 18px;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        nav a:hover,
+        nav a.active {
+            background: white;
+            color: #28551d;
+        }
+
+
+        /* ================= CONTAINER ================= */
+
+        .container {
+            width: min(1100px, 92%);
+            margin: auto;
+            padding: 55px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title span {
+            color: #759b36;
+            font-size: 14px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin: 5px 0;
+            color: #24451c;
+        }
+
+        .section-title p {
+            color: #697060;
+        }
+
+
+        /* ================= INTRO ================= */
+
+        .intro {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(34,55,20,0.08);
+            border-left: 6px solid #789b3b;
+        }
+
+        .intro h3 {
+            color: #315b22;
+            margin-bottom: 10px;
+            font-size: 23px;
+        }
+
+
+        /* ================= SET A / B ================= */
+
+        .set-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .set-card {
+            background: white;
+            border-radius: 22px;
+            padding: 28px;
+            box-shadow: 0 8px 25px rgba(34,55,20,0.08);
+        }
+
+        .set-card.a {
+            border-top: 6px solid #4d8b32;
+        }
+
+        .set-card.b {
+            border-top: 6px solid #d49b27;
+        }
+
+        .set-card h3 {
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .set-card.a h3 {
+            color: #39702b;
+        }
+
+        .set-card.b h3 {
+            color: #b57b10;
+        }
+
+        .set-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .set-item {
+            background: #eef5e6;
+            color: #315c25;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+
+        .set-card.b .set-item {
+            background: #fff5dc;
+            color: #8c6617;
+        }
+
+
+        /* ================= LOGIC ================= */
+
+        .logic-title {
+            text-align: center;
+            margin: 50px 0 25px;
+        }
+
+        .logic-title h2 {
+            color: #24451c;
+            font-size: 30px;
+        }
+
+        .logic-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .logic-card {
+            background: white;
+            padding: 27px;
+            border-radius: 20px;
+            box-shadow: 0 7px 22px rgba(34,55,20,0.07);
+            transition: 0.3s;
+        }
+
+        .logic-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .logic-card h3 {
+            color: #315f25;
+            margin-bottom: 8px;
+            font-size: 22px;
+        }
+
+        .logic-card .symbol {
+            display: inline-block;
+            background: #315f25;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .logic-example {
+            background: #f4f7ef;
+            padding: 13px;
+            border-radius: 12px;
+            margin-top: 12px;
+            font-family: Consolas, monospace;
+            color: #405437;
+        }
+
+
+        /* ================= FUNCTION ================= */
+
+        .function-box {
+            margin-top: 40px;
+            background: linear-gradient(135deg, #244b1b, #477d2d);
+            color: white;
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 0 10px 30px rgba(25,60,20,0.2);
+        }
+
+        .function-box h2 {
+            margin-bottom: 10px;
+        }
+
+        .function-list {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .function-item {
+            background: rgba(255,255,255,0.12);
+            padding: 17px;
+            border-radius: 15px;
+        }
+
+        .function-item strong {
+            color: #e8f5b8;
+        }
+
+
+        /* ================= DEMO ================= */
+
+        .demo {
+            background: white;
+            margin-top: 40px;
+            padding: 30px;
+            border-radius: 22px;
+            box-shadow: 0 8px 25px rgba(34,55,20,0.08);
+        }
+
+        .demo h2 {
+            color: #315f25;
+            margin-bottom: 20px;
+        }
+
+        .demo-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .demo label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 7px;
+        }
+
+        .demo select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccd5c4;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .logic-btn {
+            background: #315f25;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .logic-btn:hover {
+            background: #203f18;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 18px;
+            border-radius: 12px;
+            background: #eef5e6;
+            color: #315f25;
+            font-weight: bold;
+        }
+
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #183b16;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 30px;
+        }
+
+        footer h2 {
+            margin-bottom: 5px;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 750px) {
+
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .logo-area {
+                justify-content: center;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .set-grid,
+            .logic-grid,
+            .function-list,
+            .demo-row {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
+
 <!-- ================= HEADER ================= -->
+
 <header class="header">
 
     <div class="logo-area">
-        <img src="logo.png" alt="โลโก้ร้าน" class="logo">
+
+        <img src="logo.png"
+             alt="โลโก้มหาเทพเติ้ล789"
+             class="logo">
 
         <div>
             <h1>มหาเทพเติ้ล789</h1>
             <p>by ทุเรียนเติ้ลจันรี</p>
         </div>
+
     </div>
 
+
     <nav>
-        <a href="index.html">หน้าแรก</a>
-        <a href="products.html">สินค้า</a>
-        <a href="logic.html" class="active">Set Logic</a>
+
+        <a href="index.html">
+            หน้าแรก
+        </a>
+
+        <a href="products.html">
+            สินค้า
+        </a>
+
+        <a href="logic.html" class="active">
+            Set Logic
+        </a>
+
     </nav>
 
 </header>
 
 
-<!-- ================= HERO ================= -->
-<section class="logic-hero">
 
-    <div class="logic-hero-content">
+<!-- ================= MAIN ================= -->
 
-        <span class="logic-label">
-            PREMIUM DURIAN
-        </span>
+<main class="container">
 
-        <h2>
-            SET LOGIC
-        </h2>
-
-        <p>
-            เลือกชุดทุเรียนที่เหมาะกับคุณ
-            พร้อมคำนวณราคาและส่วนลดได้อย่างง่ายดาย
-        </p>
-
-        <a href="products.html" class="logic-main-btn">
-            🍈 ดูสินค้าทั้งหมด
-        </a>
-
-    </div>
-
-</section>
-
-
-<!-- ================= SET LOGIC ================= -->
-<main class="logic-container">
 
     <div class="section-title">
 
-        <span>CHOOSE YOUR SET</span>
+        <span>SET LOGIC</span>
 
-        <h2>
-            🍈 เลือกชุดทุเรียน
-        </h2>
+        <h2>🧠 ระบบ Set Logic</h2>
 
         <p>
-            เราจัดชุดทุเรียนไว้ให้เลือก
-            เหมาะสำหรับซื้อรับประทานเองและซื้อเป็นของฝาก
+            เรียนรู้การทำงานของ Set และ Logic
+            ผ่านตัวอย่างการเลือกซื้อทุเรียน
         </p>
 
     </div>
 
 
-    <!-- SET CARDS -->
+
+    <!-- ================= INTRO ================= -->
+
+    <section class="intro">
+
+        <h3>📚 Set Logic คืออะไร?</h3>
+
+        <p>
+            Set Logic คือการนำข้อมูลที่อยู่ในรูปแบบเซต
+            มาวิเคราะห์ความสัมพันธ์และเงื่อนไข
+            เพื่อช่วยให้ระบบสามารถตัดสินใจได้ว่า
+            สินค้าใดตรงกับความต้องการของลูกค้า
+        </p>
+
+    </section>
+
+
+
+    <!-- ================= SET A / B ================= -->
+
+    <div class="set-grid">
+
+
+        <div class="set-card a">
+
+            <h3>🟢 Set A</h3>
+
+            <p>
+                กลุ่มทุเรียนที่มีรสชาติหวาน
+            </p>
+
+            <div class="set-list">
+
+                <span class="set-item">
+                    หมอนทอง
+                </span>
+
+                <span class="set-item">
+                    ก้านยาว
+                </span>
+
+                <span class="set-item">
+                    ชะนี
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="set-card b">
+
+            <h3>🟡 Set B</h3>
+
+            <p>
+                กลุ่มทุเรียนที่มีราคาต่ำกว่า 200 บาท
+            </p>
+
+            <div class="set-list">
+
+                <span class="set-item">
+                    หมอนทอง
+                </span>
+
+                <span class="set-item">
+                    ชะนี
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ================= LOGIC ================= -->
+
+    <div class="logic-title">
+
+        <h2>⚙️ Function ของ Set Logic</h2>
+
+        <p>
+            ตัวดำเนินการที่ใช้ในการประมวลผลข้อมูล
+        </p>
+
+    </div>
+
+
+
     <div class="logic-grid">
 
 
-        <!-- SET 1 -->
+        <!-- AND -->
+
         <div class="logic-card">
 
-            <div class="logic-icon">
-                🍈
-            </div>
-
-            <span class="logic-tag">
-                POPULAR
+            <span class="symbol">
+                AND
             </span>
 
-            <h3>
-                Set Mini
-            </h3>
+            <h3>AND — และ</h3>
 
             <p>
-                ชุดเล็กสำหรับรับประทานเอง
-                เหมาะสำหรับ 1–2 คน
+                ต้องเป็นจริงทั้งสองเงื่อนไข
+                จึงจะได้ผลลัพธ์เป็นจริง
             </p>
 
-            <div class="logic-price">
-                299 <small>บาท</small>
+            <div class="logic-example">
+                Set A AND Set B
+                <br>
+                = สินค้าที่อยู่ทั้ง A และ B
+                <br>
+                = หมอนทอง, ชะนี
             </div>
-
-            <ul>
-                <li>✓ ทุเรียนคัดคุณภาพ</li>
-                <li>✓ เนื้อหวานมัน</li>
-                <li>✓ แพ็กอย่างดี</li>
-            </ul>
-
-            <a href="products.html" class="logic-btn">
-                เลือกชุดนี้
-            </a>
 
         </div>
 
 
-        <!-- SET 2 -->
-        <div class="logic-card featured">
 
-            <div class="logic-icon">
-                👑
-            </div>
+        <!-- OR -->
 
-            <span class="logic-tag">
-                BEST SELLER
-            </span>
-
-            <h3>
-                Set Premium
-            </h3>
-
-            <p>
-                ชุดยอดนิยมสำหรับครอบครัว
-                คัดเฉพาะทุเรียนคุณภาพดี
-            </p>
-
-            <div class="logic-price">
-                599 <small>บาท</small>
-            </div>
-
-            <ul>
-                <li>✓ หมอนทองพรีเมียม</li>
-                <li>✓ คัดเกรดพิเศษ</li>
-                <li>✓ แพ็กเกจพรีเมียม</li>
-            </ul>
-
-            <a href="products.html" class="logic-btn">
-                เลือกชุดนี้
-            </a>
-
-        </div>
-
-
-        <!-- SET 3 -->
         <div class="logic-card">
 
-            <div class="logic-icon">
-                🎁
-            </div>
-
-            <span class="logic-tag">
-                GIFT SET
+            <span class="symbol">
+                OR
             </span>
 
-            <h3>
-                Set Family
-            </h3>
+            <h3>OR — หรือ</h3>
 
             <p>
-                ชุดใหญ่สำหรับครอบครัว
-                หรือมอบเป็นของฝาก
+                ถ้าเงื่อนไขใดเงื่อนไขหนึ่งเป็นจริง
+                ก็สามารถเลือกข้อมูลได้
             </p>
 
-            <div class="logic-price">
-                999 <small>บาท</small>
+            <div class="logic-example">
+                Set A OR Set B
+                <br>
+                = สินค้าที่อยู่ใน A หรือ B
             </div>
 
-            <ul>
-                <li>✓ ทุเรียนหลายสายพันธุ์</li>
-                <li>✓ ปริมาณคุ้มค่า</li>
-                <li>✓ เหมาะสำหรับเป็นของฝาก</li>
-            </ul>
+        </div>
 
-            <a href="products.html" class="logic-btn">
-                เลือกชุดนี้
-            </a>
+
+
+        <!-- NOT -->
+
+        <div class="logic-card">
+
+            <span class="symbol">
+                NOT
+            </span>
+
+            <h3>NOT — ไม่</h3>
+
+            <p>
+                ใช้สำหรับกลับค่าของเงื่อนไข
+                หรือเลือกข้อมูลที่ไม่อยู่ในเซต
+            </p>
+
+            <div class="logic-example">
+                NOT Set B
+                <br>
+                = สินค้าที่ไม่อยู่ใน Set B
+            </div>
 
         </div>
+
+
+
+        <!-- IF ELSE -->
+
+        <div class="logic-card">
+
+            <span class="symbol">
+                IF / ELSE
+            </span>
+
+            <h3>IF / ELSE — ถ้า / มิฉะนั้น</h3>
+
+            <p>
+                ใช้ตรวจสอบเงื่อนไข
+                แล้วเลือกว่าจะทำอะไรต่อ
+            </p>
+
+            <div class="logic-example">
+                IF ราคา &lt; 200
+                <br>
+                → แสดง "ราคาประหยัด"
+                <br>
+                ELSE
+                <br>
+                → แสดง "สินค้าพรีเมียม"
+            </div>
+
+        </div>
+
 
     </div>
 
 
-    <!-- ================= HOW IT WORKS ================= -->
-    <section class="logic-info">
 
-        <div class="section-title">
+    <!-- ================= FUNCTION ================= -->
 
-            <span>HOW IT WORKS</span>
+    <section class="function-box">
 
-            <h2>
-                🛒 สั่งซื้ออย่างไร?
-            </h2>
-
-        </div>
-
-
-        <div class="steps">
-
-            <div class="step">
-
-                <div class="step-number">
-                    01
-                </div>
-
-                <h3>
-                    เลือกสินค้า
-                </h3>
-
-                <p>
-                    เลือกสายพันธุ์หรือชุดทุเรียน
-                    ที่ต้องการ
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    02
-                </div>
-
-                <h3>
-                    เพิ่มลงตะกร้า
-                </h3>
-
-                <p>
-                    กดปุ่มเพิ่มลงตะกร้า
-                    เพื่อรวมรายการสินค้า
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    03
-                </div>
-
-                <h3>
-                    ตรวจสอบราคา
-                </h3>
-
-                <p>
-                    ระบบคำนวณส่วนลด
-                    และยอดสุทธิให้
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    04
-                </div>
-
-                <h3>
-                    สั่งซื้อ
-                </h3>
-
-                <p>
-                    ตรวจสอบรายการ
-                    แล้วกดสั่งซื้อ
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- ================= CTA ================= -->
-    <section class="logic-cta">
-
-        <h2>
-            🍈 พร้อมเลือกทุเรียนของคุณแล้วหรือยัง?
-        </h2>
+        <h2>🔧 Function ที่ใช้ในระบบ</h2>
 
         <p>
-            ทุเรียนคุณภาพดี คัดสรรเพื่อคุณ
+            ตัวอย่างการนำ Set Logic ไปใช้กับระบบร้านทุเรียน
         </p>
 
-        <a href="products.html">
-            🛍️ ไปเลือกสินค้า
-        </a>
+
+        <div class="function-list">
+
+            <div class="function-item">
+                <strong>filterProducts()</strong>
+                <br>
+                กรองสินค้าตามประเภททุเรียน
+            </div>
+
+            <div class="function-item">
+                <strong>addToCart()</strong>
+                <br>
+                เพิ่มสินค้าลงตะกร้า
+            </div>
+
+            <div class="function-item">
+                <strong>checkout()</strong>
+                <br>
+                ตรวจสอบและสั่งซื้อสินค้า
+            </div>
+
+            <div class="function-item">
+                <strong>IF / ELSE</strong>
+                <br>
+                ตรวจสอบราคาและส่วนลด
+            </div>
+
+        </div>
 
     </section>
+
+
+
+    <!-- ================= DEMO ================= -->
+
+    <section class="demo">
+
+        <h2>🧪 ทดลอง Set Logic</h2>
+
+        <div class="demo-row">
+
+            <div>
+
+                <label>
+                    Set A
+                </label>
+
+                <select id="setA">
+
+                    <option value="monthong">
+                        หมอนทอง
+                    </option>
+
+                    <option value="kan-yai">
+                        ก้านยาว
+                    </option>
+
+                    <option value="chanee">
+                        ชะนี
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div>
+
+                <label>
+                    Set B
+                </label>
+
+                <select id="setB">
+
+                    <option value="monthong">
+                        หมอนทอง
+                    </option>
+
+                    <option value="kan-yai">
+                        ก้านยาว
+                    </option>
+
+                    <option value="chanee">
+                        ชะนี
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="logic-btn"
+            onclick="checkLogic()">
+
+            🔍 ตรวจสอบ Logic
+
+        </button>
+
+
+        <div id="result">
+            กดปุ่มเพื่อตรวจสอบผลลัพธ์
+        </div>
+
+    </section>
+
 
 </main>
 
 
+
 <!-- ================= FOOTER ================= -->
+
 <footer>
 
     <h2>
@@ -318,11 +789,37 @@
         by ทุเรียนเติ้ลจันรี
     </p>
 
-    <p class="footer-copy">
-        © 2026 Durian Tael789. All Rights Reserved.
-    </p>
-
 </footer>
+
+
+
+<script>
+
+function checkLogic() {
+
+    const A = document.getElementById("setA").value;
+
+    const B = document.getElementById("setB").value;
+
+    const result = document.getElementById("result");
+
+
+    if (A === B) {
+
+        result.innerHTML =
+            "✅ AND เป็นจริง — ข้อมูลอยู่ใน Set A และ Set B เหมือนกัน";
+
+    } else {
+
+        result.innerHTML =
+            "❌ AND เป็นเท็จ — ข้อมูลของ Set A และ Set B ไม่เหมือนกัน";
+
+    }
+
+}
+
+</script>
+
 
 </body>
 </html>
