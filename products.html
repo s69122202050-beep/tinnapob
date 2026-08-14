@@ -6,274 +6,355 @@
 
     <title>สินค้า | มหาเทพเติ้ล789</title>
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<header class="header">
+    <!-- ================= HEADER ================= -->
+    <header class="header">
 
-    <div class="logo-area">
-        <img src="./logo.png" alt="มหาเทพเติ้ล789" class="logo">
+        <div class="logo-area">
 
-        <div>
-            <h1>มหาเทพเติ้ล789</h1>
-            <p>by ทุเรียนเติ้ลจันรี</p>
+            <!-- โลโก้ -->
+            <img src="logo.png" alt="มหาเทพเติ้ล789" class="logo">
+
+            <div>
+                <h1>มหาเทพเติ้ล789</h1>
+                <p>by ทุเรียนเติ้ลจันรี</p>
+            </div>
+
         </div>
-    </div>
 
-    <nav>
-        <a href="./index.html">หน้าแรก</a>
-        <a href="./products.html" class="active">สินค้า</a>
-        <a href="./logic.html">Set Logic</a>
-    </nav>
+        <nav>
+            <a href="index.html">หน้าแรก</a>
+            <a href="products.html" class="active">สินค้า</a>
+            <a href="logic.html">Set Logic</a>
+        </nav>
 
-</header>
-
-
-<main class="container">
-
-    <div class="section-title">
-        <span>OUR PRODUCTS</span>
-
-        <h2>🍈 รายการทุเรียน</h2>
-
-        <p>เลือกสายพันธุ์ทุเรียนที่ต้องการ</p>
-    </div>
+    </header>
 
 
-    <div class="category-buttons">
+    <!-- ================= PRODUCTS ================= -->
+    <main class="container">
 
-        <button onclick="filterProducts('all')">
-            ทั้งหมด
-        </button>
+        <div class="section-title">
+            <span>OUR PRODUCTS</span>
 
-        <button onclick="filterProducts('monthong')">
-            หมอนทอง
-        </button>
+            <h2>🍈 รายการทุเรียน</h2>
 
-        <button onclick="filterProducts('kan-yai')">
-            ก้านยาว
-        </button>
-
-        <button onclick="filterProducts('chanee')">
-            ชะนี
-        </button>
-
-    </div>
+            <p>
+                เลือกสายพันธุ์ทุเรียนที่ต้องการ
+            </p>
+        </div>
 
 
-    <div class="product-grid">
+        <!-- ================= CATEGORY ================= -->
+        <div class="category-buttons">
 
+            <button onclick="filterProducts('all')">
+                ทั้งหมด
+            </button>
 
-        <!-- หมอนทอง -->
-        <div class="product-card" data-category="monthong">
+            <button onclick="filterProducts('monthong')">
+                หมอนทอง
+            </button>
 
-            <img
-                src="./durian.png"
-                alt="หมอนทอง"
-                class="product-image"
-            >
+            <button onclick="filterProducts('kan-yai')">
+                ก้านยาว
+            </button>
 
-            <span class="category">หมอนทอง</span>
-
-            <h3>หมอนทอง</h3>
-
-            <p>เนื้อหนา หวานมัน กลิ่นหอม</p>
-
-            <del>180 บาท</del>
-
-            <h2 class="price">162 บาท</h2>
-
-            <p class="discount">ส่วนลด 10%</p>
-
-            <button
-                class="cart-btn"
-                onclick="addToCart('หมอนทอง', 162)"
-            >
-                🛒 เพิ่มลงตะกร้า
+            <button onclick="filterProducts('chanee')">
+                ชะนี
             </button>
 
         </div>
 
 
-        <!-- ก้านยาว -->
-        <div class="product-card" data-category="kan-yai">
+        <!-- ================= PRODUCT GRID ================= -->
+        <div class="product-grid">
 
-            <img
-                src="./durian.png"
-                alt="ก้านยาว"
-                class="product-image"
-            >
 
-            <span class="category">ก้านยาว</span>
+            <!-- 1 หมอนทอง -->
+            <div class="product-card"
+                 data-category="monthong">
 
-            <h3>ก้านยาว</h3>
+                <img
+                    src="th-11134207-7rasl-m74iatw38uydfe.jpg"
+                    alt="หมอนทอง"
+                    class="product-image"
+                >
 
-            <p>เนื้อละเอียด หวานหอม</p>
+                <span class="category">
+                    หมอนทอง
+                </span>
 
-            <del>250 บาท</del>
+                <h3>
+                    หมอนทอง
+                </h3>
 
-            <h2 class="price">212.50 บาท</h2>
+                <p>
+                    เนื้อหนา หวานมัน กลิ่นหอม
+                </p>
 
-            <p class="discount">ส่วนลด 15%</p>
+                <del>
+                    180 บาท
+                </del>
+
+                <h2 class="price">
+                    162 บาท
+                </h2>
+
+                <p class="discount">
+                    ส่วนลด 10%
+                </p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('หมอนทอง', 162)"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
+            </div>
+
+
+            <!-- 2 ก้านยาว -->
+            <div class="product-card"
+                 data-category="kan-yai">
+
+                <img
+                    src="th-11134207-7rasl-m74iatw38uydfe.jpg"
+                    alt="ก้านยาว"
+                    class="product-image"
+                >
+
+                <span class="category">
+                    ก้านยาว
+                </span>
+
+                <h3>
+                    ก้านยาว
+                </h3>
+
+                <p>
+                    เนื้อละเอียด หวานหอม
+                </p>
+
+                <del>
+                    250 บาท
+                </del>
+
+                <h2 class="price">
+                    212.50 บาท
+                </h2>
+
+                <p class="discount">
+                    ส่วนลด 15%
+                </p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('ก้านยาว', 212.50)"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
+            </div>
+
+
+            <!-- 3 ชะนี -->
+            <div class="product-card"
+                 data-category="chanee">
+
+                <img
+                    src="th-11134207-7rasl-m74iatw38uydfe.jpg"
+                    alt="ชะนี"
+                    class="product-image"
+                >
+
+                <span class="category">
+                    ชะนี
+                </span>
+
+                <h3>
+                    ชะนี
+                </h3>
+
+                <p>
+                    เนื้อนุ่ม รสหวานมัน
+                </p>
+
+                <del>
+                    160 บาท
+                </del>
+
+                <h2 class="price">
+                    160 บาท
+                </h2>
+
+                <p class="discount">
+                    ส่วนลด 0%
+                </p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('ชะนี', 160)"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
+            </div>
+
+
+            <!-- 4 หมอนทองพรีเมียม -->
+            <div class="product-card"
+                 data-category="monthong">
+
+                <img
+                    src="th-11134207-7rasl-m74iatw38uydfe.jpg"
+                    alt="หมอนทองพรีเมียม"
+                    class="product-image"
+                >
+
+                <span class="category">
+                    หมอนทอง
+                </span>
+
+                <h3>
+                    หมอนทองพรีเมียม
+                </h3>
+
+                <p>
+                    คัดพิเศษ เนื้อแน่นเต็มพู
+                </p>
+
+                <del>
+                    320 บาท
+                </del>
+
+                <h2 class="price">
+                    256 บาท
+                </h2>
+
+                <p class="discount">
+                    ส่วนลด 20%
+                </p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('หมอนทองพรีเมียม', 256)"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
+            </div>
+
+
+            <!-- 5 ชุดทุเรียน -->
+            <div class="product-card"
+                 data-category="all">
+
+                <img
+                    src="th-11134207-7rasl-m74iatw38uydfe.jpg"
+                    alt="ชุดทุเรียนรวม"
+                    class="product-image"
+                >
+
+                <span class="category">
+                    ชุดรวม
+                </span>
+
+                <h3>
+                    ชุดทุเรียนรวม
+                </h3>
+
+                <p>
+                    รวมหลายสายพันธุ์
+                </p>
+
+                <del>
+                    500 บาท
+                </del>
+
+                <h2 class="price">
+                    375 บาท
+                </h2>
+
+                <p class="discount">
+                    ส่วนลด 25%
+                </p>
+
+                <button
+                    class="cart-btn"
+                    onclick="addToCart('ชุดทุเรียนรวม', 375)"
+                >
+                    🛒 เพิ่มลงตะกร้า
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CART ================= -->
+        <section class="cart">
+
+            <h2>
+                🛒 ตะกร้าสินค้า
+            </h2>
+
+            <div id="cartItems">
+                ยังไม่มีสินค้า
+            </div>
+
+            <p>
+                ราคาสินค้า:
+                <strong id="cartTotal">0</strong>
+                บาท
+            </p>
+
+            <p>
+                ส่วนลด:
+                <strong id="cartDiscount">0</strong>
+                บาท
+            </p>
+
+            <hr>
+
+            <h2>
+                ยอดสุทธิ:
+                <span id="finalTotal">0</span>
+                บาท
+            </h2>
 
             <button
-                class="cart-btn"
-                onclick="addToCart('ก้านยาว', 212.50)"
+                class="buy-btn"
+                onclick="checkout()"
             >
-                🛒 เพิ่มลงตะกร้า
+                🛍️ สั่งซื้อสินค้า
             </button>
 
-        </div>
+        </section>
+
+    </main>
 
 
-        <!-- ชะนี -->
-        <div class="product-card" data-category="chanee">
-
-            <img
-                src="./durian.png"
-                alt="ชะนี"
-                class="product-image"
-            >
-
-            <span class="category">ชะนี</span>
-
-            <h3>ชะนี</h3>
-
-            <p>เนื้อนุ่ม รสหวานมัน</p>
-
-            <del>160 บาท</del>
-
-            <h2 class="price">160 บาท</h2>
-
-            <p class="discount">ส่วนลด 0%</p>
-
-            <button
-                class="cart-btn"
-                onclick="addToCart('ชะนี', 160)"
-            >
-                🛒 เพิ่มลงตะกร้า
-            </button>
-
-        </div>
-
-
-        <!-- หมอนทองพรีเมียม -->
-        <div class="product-card" data-category="monthong">
-
-            <img
-                src="./durian.png"
-                alt="หมอนทองพรีเมียม"
-                class="product-image"
-            >
-
-            <span class="category">หมอนทอง</span>
-
-            <h3>หมอนทองพรีเมียม</h3>
-
-            <p>คัดพิเศษ เนื้อแน่นเต็มพู</p>
-
-            <del>320 บาท</del>
-
-            <h2 class="price">256 บาท</h2>
-
-            <p class="discount">ส่วนลด 20%</p>
-
-            <button
-                class="cart-btn"
-                onclick="addToCart('หมอนทองพรีเมียม', 256)"
-            >
-                🛒 เพิ่มลงตะกร้า
-            </button>
-
-        </div>
-
-
-        <!-- ชุดทุเรียน -->
-        <div class="product-card" data-category="all">
-
-            <img
-                src="./durian.png"
-                alt="ชุดทุเรียนรวม"
-                class="product-image"
-            >
-
-            <span class="category">ชุดรวม</span>
-
-            <h3>ชุดทุเรียนรวม</h3>
-
-            <p>รวมหลายสายพันธุ์</p>
-
-            <del>500 บาท</del>
-
-            <h2 class="price">375 บาท</h2>
-
-            <p class="discount">ส่วนลด 25%</p>
-
-            <button
-                class="cart-btn"
-                onclick="addToCart('ชุดทุเรียนรวม', 375)"
-            >
-                🛒 เพิ่มลงตะกร้า
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- ตะกร้า -->
-    <section class="cart">
-
-        <h2>🛒 ตะกร้าสินค้า</h2>
-
-        <div id="cartItems">
-            ยังไม่มีสินค้า
-        </div>
-
-        <p>
-            ราคาสินค้า:
-            <strong id="cartTotal">0</strong>
-            บาท
-        </p>
-
-        <p>
-            ส่วนลด:
-            <strong id="cartDiscount">0</strong>
-            บาท
-        </p>
-
-        <hr>
+    <!-- ================= FOOTER ================= -->
+    <footer>
 
         <h2>
-            ยอดสุทธิ:
-            <span id="finalTotal">0</span>
-            บาท
+            มหาเทพเติ้ล789
         </h2>
 
-        <button
-            class="buy-btn"
-            onclick="checkout()"
-        >
-            🛍️ สั่งซื้อสินค้า
-        </button>
+        <p>
+            by ทุเรียนเติ้ลจันรี
+        </p>
 
-    </section>
-
-</main>
+    </footer>
 
 
-<footer>
-
-    <h2>มหาเทพเติ้ล789</h2>
-
-    <p>by ทุเรียนเติ้ลจันรี</p>
-
-</footer>
-
-
-<script src="./script.js"></script>
+    <script src="script.js"></script>
 
 </body>
 </html>
