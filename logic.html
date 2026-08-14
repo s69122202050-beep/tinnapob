@@ -1,279 +1,328 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Set Logic | มหาเทพเติ้ล789</title>
 
     <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
 
-
+<!-- ================= HEADER ================= -->
 <header class="header">
 
     <div class="logo-area">
-
-        <img src="durian.png"
-             class="logo"
-             alt="โลโก้">
+        <img src="logo.png" alt="โลโก้ร้าน" class="logo">
 
         <div>
-
             <h1>มหาเทพเติ้ล789</h1>
-
             <p>by ทุเรียนเติ้ลจันรี</p>
-
         </div>
-
     </div>
 
-
     <nav>
-
         <a href="index.html">หน้าแรก</a>
-
         <a href="products.html">สินค้า</a>
-
-        <a href="logic.html">Set Logic</a>
-
+        <a href="logic.html" class="active">Set Logic</a>
     </nav>
 
 </header>
 
 
-<section class="logic-page">
+<!-- ================= HERO ================= -->
+<section class="logic-hero">
 
-    <div class="section-title">
+    <div class="logic-hero-content">
 
-        <span>
-            DISCRETE MATHEMATICS
+        <span class="logic-label">
+            PREMIUM DURIAN
         </span>
 
         <h2>
-            🧠 Set Theory & Boolean Logic
+            SET LOGIC
         </h2>
 
         <p>
-            การประยุกต์ใช้คณิตศาสตร์ดิสครีต
-            กับระบบร้านขายทุเรียน
+            เลือกชุดทุเรียนที่เหมาะกับคุณ
+            พร้อมคำนวณราคาและส่วนลดได้อย่างง่ายดาย
         </p>
 
-    </div>
-
-
-    <!-- SET A -->
-
-    <div class="logic-card">
-
-        <h2>Set A</h2>
-
-        <p>
-            เซต A = สินค้าทุเรียนทั้งหมด
-        </p>
-
-        <div id="setA"
-             class="set-box">
-
-        </div>
+        <a href="products.html" class="logic-main-btn">
+            🍈 ดูสินค้าทั้งหมด
+        </a>
 
     </div>
-
-
-    <!-- SET B -->
-
-    <div class="logic-card">
-
-        <h2>Set B</h2>
-
-        <p>
-            เซต B = สินค้าที่มีส่วนลด
-        </p>
-
-        <div id="setB"
-             class="set-box">
-
-        </div>
-
-    </div>
-
-
-    <!-- SET OPERATION -->
-
-    <div class="logic-card">
-
-        <h2>🔢 Set Operation</h2>
-
-        <p>
-            ทดลองการดำเนินการระหว่าง Set A และ Set B
-        </p>
-
-
-        <div class="logic-buttons">
-
-            <button onclick="setOperation('AND')">
-
-                A ∩ B
-
-                <small>
-                    AND / Intersection
-                </small>
-
-            </button>
-
-
-            <button onclick="setOperation('OR')">
-
-                A ∪ B
-
-                <small>
-                    OR / Union
-                </small>
-
-            </button>
-
-
-            <button onclick="setOperation('NOT')">
-
-                A - B
-
-                <small>
-                    Difference
-                </small>
-
-            </button>
-
-        </div>
-
-
-        <div id="logicResult"
-             class="result">
-
-            กรุณาเลือก Operation
-
-        </div>
-
-    </div>
-
-
-    <!-- BOOLEAN -->
-
-    <div class="logic-card">
-
-        <h2>🔘 Boolean Logic</h2>
-
-        <p>
-            ทดลองค่า TRUE / FALSE
-        </p>
-
-
-        <label class="check">
-
-            <input type="checkbox"
-                   id="booleanA">
-
-            A = TRUE
-
-        </label>
-
-
-        <label class="check">
-
-            <input type="checkbox"
-                   id="booleanB">
-
-            B = TRUE
-
-        </label>
-
-
-        <div class="logic-buttons">
-
-            <button onclick="booleanOperation('AND')">
-                A AND B
-            </button>
-
-            <button onclick="booleanOperation('OR')">
-                A OR B
-            </button>
-
-            <button onclick="booleanOperation('NOT')">
-                NOT A
-            </button>
-
-        </div>
-
-
-        <div id="booleanResult"
-             class="result">
-
-            ผลลัพธ์ Boolean
-
-        </div>
-
-    </div>
-
-
-    <!-- IF ELSE -->
-
-    <div class="logic-card">
-
-        <h2>
-            ⚙️ IF / ELSE ระบบส่วนลด
-        </h2>
-
-        <p>
-            ถ้าซื้อทุเรียนตั้งแต่ 5 ลูกขึ้นไป
-            รับส่วนลด 10%
-        </p>
-
-
-        <input
-            type="number"
-            id="quantityInput"
-            value="1"
-            min="1">
-
-
-        <button onclick="checkDiscount()">
-            ตรวจสอบส่วนลด
-        </button>
-
-
-        <div id="ifElseResult"
-             class="result">
-
-            รอการตรวจสอบ
-
-        </div>
-
-    </div>
-
 
 </section>
 
 
+<!-- ================= SET LOGIC ================= -->
+<main class="logic-container">
+
+    <div class="section-title">
+
+        <span>CHOOSE YOUR SET</span>
+
+        <h2>
+            🍈 เลือกชุดทุเรียน
+        </h2>
+
+        <p>
+            เราจัดชุดทุเรียนไว้ให้เลือก
+            เหมาะสำหรับซื้อรับประทานเองและซื้อเป็นของฝาก
+        </p>
+
+    </div>
+
+
+    <!-- SET CARDS -->
+    <div class="logic-grid">
+
+
+        <!-- SET 1 -->
+        <div class="logic-card">
+
+            <div class="logic-icon">
+                🍈
+            </div>
+
+            <span class="logic-tag">
+                POPULAR
+            </span>
+
+            <h3>
+                Set Mini
+            </h3>
+
+            <p>
+                ชุดเล็กสำหรับรับประทานเอง
+                เหมาะสำหรับ 1–2 คน
+            </p>
+
+            <div class="logic-price">
+                299 <small>บาท</small>
+            </div>
+
+            <ul>
+                <li>✓ ทุเรียนคัดคุณภาพ</li>
+                <li>✓ เนื้อหวานมัน</li>
+                <li>✓ แพ็กอย่างดี</li>
+            </ul>
+
+            <a href="products.html" class="logic-btn">
+                เลือกชุดนี้
+            </a>
+
+        </div>
+
+
+        <!-- SET 2 -->
+        <div class="logic-card featured">
+
+            <div class="logic-icon">
+                👑
+            </div>
+
+            <span class="logic-tag">
+                BEST SELLER
+            </span>
+
+            <h3>
+                Set Premium
+            </h3>
+
+            <p>
+                ชุดยอดนิยมสำหรับครอบครัว
+                คัดเฉพาะทุเรียนคุณภาพดี
+            </p>
+
+            <div class="logic-price">
+                599 <small>บาท</small>
+            </div>
+
+            <ul>
+                <li>✓ หมอนทองพรีเมียม</li>
+                <li>✓ คัดเกรดพิเศษ</li>
+                <li>✓ แพ็กเกจพรีเมียม</li>
+            </ul>
+
+            <a href="products.html" class="logic-btn">
+                เลือกชุดนี้
+            </a>
+
+        </div>
+
+
+        <!-- SET 3 -->
+        <div class="logic-card">
+
+            <div class="logic-icon">
+                🎁
+            </div>
+
+            <span class="logic-tag">
+                GIFT SET
+            </span>
+
+            <h3>
+                Set Family
+            </h3>
+
+            <p>
+                ชุดใหญ่สำหรับครอบครัว
+                หรือมอบเป็นของฝาก
+            </p>
+
+            <div class="logic-price">
+                999 <small>บาท</small>
+            </div>
+
+            <ul>
+                <li>✓ ทุเรียนหลายสายพันธุ์</li>
+                <li>✓ ปริมาณคุ้มค่า</li>
+                <li>✓ เหมาะสำหรับเป็นของฝาก</li>
+            </ul>
+
+            <a href="products.html" class="logic-btn">
+                เลือกชุดนี้
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section class="logic-info">
+
+        <div class="section-title">
+
+            <span>HOW IT WORKS</span>
+
+            <h2>
+                🛒 สั่งซื้ออย่างไร?
+            </h2>
+
+        </div>
+
+
+        <div class="steps">
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    เลือกสินค้า
+                </h3>
+
+                <p>
+                    เลือกสายพันธุ์หรือชุดทุเรียน
+                    ที่ต้องการ
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    เพิ่มลงตะกร้า
+                </h3>
+
+                <p>
+                    กดปุ่มเพิ่มลงตะกร้า
+                    เพื่อรวมรายการสินค้า
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    ตรวจสอบราคา
+                </h3>
+
+                <p>
+                    ระบบคำนวณส่วนลด
+                    และยอดสุทธิให้
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    04
+                </div>
+
+                <h3>
+                    สั่งซื้อ
+                </h3>
+
+                <p>
+                    ตรวจสอบรายการ
+                    แล้วกดสั่งซื้อ
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+    <section class="logic-cta">
+
+        <h2>
+            🍈 พร้อมเลือกทุเรียนของคุณแล้วหรือยัง?
+        </h2>
+
+        <p>
+            ทุเรียนคุณภาพดี คัดสรรเพื่อคุณ
+        </p>
+
+        <a href="products.html">
+            🛍️ ไปเลือกสินค้า
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- ================= FOOTER ================= -->
 <footer>
 
-    <img src="durian.png"
-         class="footer-logo"
-         alt="โลโก้">
+    <h2>
+        มหาเทพเติ้ล789
+    </h2>
 
-    <h3>มหาเทพเติ้ล789</h3>
+    <p>
+        by ทุเรียนเติ้ลจันรี
+    </p>
 
-    <p>by ทุเรียนเติ้ลจันรี</p>
+    <p class="footer-copy">
+        © 2026 Durian Tael789. All Rights Reserved.
+    </p>
 
 </footer>
-
-
-<script src="script.js"></script>
 
 </body>
 </html>
